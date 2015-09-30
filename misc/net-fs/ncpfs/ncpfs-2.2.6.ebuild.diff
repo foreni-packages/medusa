@@ -1,0 +1,21 @@
+--- /usr/portage/net-fs/ncpfs/ncpfs-2.2.6.ebuild	2008-05-14 17:36:37.000000000 -0500
++++ ncpfs-2.2.6.ebuild	2009-03-27 11:18:17.591620794 -0500
+@@ -4,7 +4,7 @@
+ 
+ inherit eutils confutils
+ 
+-IUSE="nls pam php"
++IUSE="nls pam php install-dev"
+ 
+ DESCRIPTION="Provides Access to Netware services using the NCP protocol (Kernel support must be activated!)"
+ SRC_URI="ftp://platan.vc.cvut.cz/pub/linux/${PN}/${P}.tar.gz"
+@@ -48,5 +48,9 @@
+ 	dodir /sbin
+ 	make DESTDIR=${D} install || die
+ 
++	if use install-dev; then
++		make DESTDIR=${D} install-dev || die
++	fi
++
+ 	dodoc FAQ README
+ }

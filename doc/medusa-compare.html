@@ -1,0 +1,447 @@
+<HTML>
+<TITLE>Foofus Networking Services - Medusa</TITLE>
+<BODY BGCOLOR="#999999">
+
+<H1>Medusa Parallel Network Login Auditor :: Feature Comparison</H1>
+<I>JoMo-Kun / jmk "AT" foofus "DOT" net</I><BR>
+<HR>
+
+<P>
+Here's a quick comparison of Hydra and Medusa. This is based on my
+understanding of Hydra 5.0 and Medusa 1.5. It should be noted that
+even if a particular item is checked, it does not necessarily 
+mean it works correctly. I have not used Hydra in a number of years. 
+If newer versions have addressed some of the known issues or added 
+new functionality that should be reflected here, please let me know.
+
+<BR><BR>
+
+<P>
+<TABLE BORDER=1 CELLPADDING=2 WIDTH=80%>
+<TR>
+  <TD><B>Area</B>
+  <TD><B>Feature</B>
+  <TD><B>Hydra</B>
+  <TD><B>Medusa</B>
+</TR>
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>*</TD>
+  <TD>License</TD>
+  <TD>HYDRA</TD>
+  <TD><B>GPL-2</B></TD>
+</TR>
+<TR>
+  <TD>Bugs</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD VALIGN=TOP ROWSPAN=3>Core</TD>
+  <TD>Parallel Method</TD>
+  <TD>fork()</TD>
+  <TD><B>pthread</B></TD>
+</TR>
+<TR>
+  <TD>Service Design</TD>
+  <TD>Built-in</TD>
+  <TD><B>Modular</B></TD>
+</TR>
+<TR>
+  <TD>Speed</TD>
+  <TD>?</TD>
+  <TD>?</TD>
+</TR>
+
+<TR>
+  <TD>Generic Wrapper Module</TD>
+  <TD></TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD>AFP</TD>
+  <TD></TD>
+  <TD><I></I></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD>CVS</TD>
+  <TD></TD>
+  <TD><I>Broken - infinite loop</I></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=3>FTP</TD>
+  <TD>FTP</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Explicit FTPS (AUTH TLS Mode as defined in RFC 4217)</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Implicit FTPS (FTP over SSL (990/tcp)</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=4>HTTP</TD>
+  <TD>Basic Auth</TD>
+  <TD><I>Broken - Base64 incorrect for some passwords</I></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>NTLM Auth (Windows Integrated)</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Digest Authentication</TD>
+  <TD></TD>
+  <TD><B>MD5, MD5-sess</B></TD>
+</TR>
+<TR>
+  <TD>HTTP Proxy</TD>
+  <TD>&radic</TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD>ICQ</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=4>IMAP</TD>
+  <TD>Method AUTH-LOGIN Support</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Method AUTH-PLAIN Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Method AUTH-NTLM Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>SSL Support</TD>
+  <TD>IMAPS</TD>
+  <TD><B>IMAPS, STARTTLS</B></TD>
+</TR>
+
+<TR>
+  <TD>LDAP</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>Microsoft SQL</TD>
+  <TD>Port Auto-Detection</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>MS-SQL</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=3>MySQL</TD>
+  <TD>Pre-4.1 Authentication</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Pre-4.1 Hash Passing</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>4.1 Authentication</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD>NCP (NetWare)</TD>
+  <TD></TD>
+  <TD></TD>
+  <TD><B>&radic (ncpfs)</B></TD>
+</TR>
+
+<TR>
+  <TD>NNTP</TD>
+  <TD></TD>
+  <TD>&radic (Original AUTHINFO)</TD>
+  <TD>&radic (Original AUTHINFO)</TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>Oracle</TD>
+  <TD>Database</TD>
+  <TD><I>Non-Functional</I></TD>
+  <TD><B>&radic (via Wrapper script)</B></TD>
+</TR>
+<TR>
+  <TD>Listener</TD>
+  <TD><I>Non-Functional</I></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>PcAnywhere</TD>
+  <TD>Supported Encryption Level</TD>
+  <TD>None</TD>
+  <TD>None</TD>
+</TR>
+<TR>
+  <TD>Supported Authenication Mode(s)</TD>
+  <TD>Native PCA</TD>
+  <TD><B>Native PCA, ADS, NT, Windows</B></TD>
+</TR>
+
+<TR>
+  <TD>PCNFS</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=5>POP3</TD>
+  <TD>Method AUTH-USER Support</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Method AUTH-LOGIN Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Method AUTH-PLAIN Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Method AUTH-NTLM Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+</TR>
+<TR>
+  <TD>SSL Support</TD>
+  <TD>POP3S</TD>
+  <TD><B>POP3S, STARTTLS</B></TD>
+</TR>
+
+<TR>
+  <TD>PostgreSQL</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD>REXEC</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>RLOGIN</TD>
+  <TD>.rhost Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Password Support</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD>RSH</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD>SAPR3</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD>SIP</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=4>SMB (Microsoft Windows/Samba)</TD>
+  <TD>Authentication Modes</TD>
+  <TD>clear-text, NTLMv1 (broken)</TD>
+  <TD><B>clear-text, LMv1, NTLMv1, LMv2, NTLMv2</B></TD>
+</TR>
+<TR>
+  <TD>NetBIOS Mode</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>W2K Native Mode</TD>
+  <TD><I>Broken</I></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Hash Passing</TD>
+  <TD><I>Broken</I></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=4>SMTP</TD>
+  <TD>Method AUTH-LOGIN Support</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Method AUTH-PLAIN Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Method AUTH-NTLM Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>SSL Support</TD>
+  <TD></TD>
+  <TD><B>STARTTLS</B></TD>
+</TR>
+<TR>
+  <TD>VRFY</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD>SNMP</TD>
+  <TD></TD>
+  <TD>&radic (overwrites sysName with "HYDRA")</TD>
+  <TD><B>&radic (significantly faster design)</B></TD>
+</TR>
+
+<TR>
+  <TD>SOCKS5</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD>SSHv2</TD>
+  <TD></TD>
+  <TD>&radic (libssh)</TD>
+  <TD><B>&radic (libssh2)</B></TD>
+</TR>
+
+<TR>
+  <TD>SVN</TD>
+  <TD></TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+
+<TR>
+  <TD>TeamSpeak</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=4>Telnet</TD>
+  <TD>Generic Telnet</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+<TR>
+  <TD>Cisco (AAA/non-AAA)</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Cisco enable password</TD>
+  <TD><B>&radic</B></TD>
+  <TD></TD>
+</TR>
+<TR>
+  <TD>AS/400 (TN5250) Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=3>VNC</TD>
+  <TD>Password-less/Password-only Support</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>Anti-Brute Force Slowdown Support</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+<TR>
+  <TD>Username/Password Support</TD>
+  <TD></TD>
+  <TD></TD>
+</TR>
+
+<TR>
+  <TD VALIGN=TOP ROWSPAN=2>VmWare Authentication Daemon</TD>
+  <TD>Non-SSL Authentication</TD>
+  <TD>&radic</TD>
+  <TD>&radic</TD>
+</TR>
+<TR>
+  <TD>SSL Authentication</TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+<TR>
+  <TD>Web Form Module</TD>
+  <TD></TD>
+  <TD></TD>
+  <TD><B>&radic</B></TD>
+</TR>
+
+</TABLE>
+
+<BR><BR>
+<A HREF="medusa.html">Medusa Documentation</A><BR>
+</BODY>
+<HTML>
